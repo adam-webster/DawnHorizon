@@ -10,7 +10,7 @@ I0, R0 = 20, 0
 S0 = N - I0 - R0
 # Contact rate, beta, and mean recovery rate, nu, (in 1/days).
 beta, nu = 15/100, 1./100
-# A grid of time points (in days)
+# time list
 t = np.linspace(0, 200, 200)
 
 # The SIR model differential equations.
@@ -23,7 +23,7 @@ def deriv(y, t, N, beta, nu):
 
 # Initial conditions vector
 y0 = S0, I0, R0
-# Integrate the SIR equations over the time grid, t.
+# Integrate the SIR equations over time
 ret = odeint(deriv, y0, t, args=(N, beta, nu))
 S, I, R = ret.T
 
